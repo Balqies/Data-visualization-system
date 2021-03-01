@@ -1,0 +1,21 @@
+{% include 'layout.html' %}
+
+<center>
+    
+    <table border =2 >
+        <thead style="font-weight: bold;">
+        <tr>
+            <td>Manufacturers</td>
+            <td>No of Planes</td>
+        </tr>
+        </thead>
+        <tbody style="text-align-last: center;">
+        {%for flight in flightDetails %}
+        <tr>
+            <td>{{flight[0]}}</td>
+            <td>{{flight[1]}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</center>

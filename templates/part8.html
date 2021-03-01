@@ -1,0 +1,44 @@
+{% include 'layout.html' %}
+   <script>
+       var data1 = {{data1}}
+       var ctx = document.getElementById("myChart").getContext('2d');
+  
+  var scatterChart = new Chart(ctx, {
+type: 'scatter',
+data: {
+  datasets: [{  
+    label: 'JFH',
+        data: data1,
+        borderColor: "#3a9e41",
+        backgroundColor: "#3a9e41"
+  }]
+},
+options: {
+    scales: {
+      xAxes: [{
+        type: 'time',
+        beginAtZero:true,
+        ticks: {
+          userCallback: function(label, index, labels) {
+            return moment(label).format("MM");
+          }
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'DateTime',
+          fontSize: 14
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Temperature in Fahrenheit',
+          fontSize: 14
+        }
+      }]
+    }
+  }
+});
+
+    </script>
+    

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+</head>
+<body>
+    {% include 'navigation.html' %}
+    <h3 style="text-align: center; padding: 2%;">{{ title }}</h3>
+    <div style="width: 55%; position: absolute; left: 22%; top: 35%;">
+    <canvas id="myChart" ></canvas>
+    <div style="padding-top: 7%">
+    <canvas id="myChart1" ></canvas>
+    </div>
+    </div>
+</body>
+</html>

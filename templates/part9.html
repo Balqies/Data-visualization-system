@@ -1,0 +1,52 @@
+{% include 'layout.html' %}
+   <script>
+       var data1 = {{data1}}
+       var data2 ={{data2}}
+       var data3 ={{data3}}
+       var ctx = document.getElementById("myChart").getContext('2d');
+  
+  var scatterChart = new Chart(ctx, {
+type: 'scatter',
+data: {
+  datasets: [{  
+    label: 'EWR',
+        data: data1,
+        borderColor: "#d16047",
+        backgroundColor: "#d16047"
+  },
+  {
+        label: 'JFH',
+        data: data2,
+        borderColor: "#3a9e41",
+        backgroundColor: "#3a9e41"
+  },
+  {
+        label: 'LGA',
+        data: data3,
+        borderColor: "#4971b3",
+        backgroundColor: "#4971b3"
+  }]
+},
+options: {
+    scales: {
+      xAxes: [{
+        type: 'time',
+        beginAtZero:true,
+        scaleLabel: {
+          display: true,
+          labelString: 'DateTime',
+          fontSize: 14
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Temperature in Fahrenheit',
+          fontSize: 14
+        }
+      }]
+    }
+  }
+});
+
+    </script>

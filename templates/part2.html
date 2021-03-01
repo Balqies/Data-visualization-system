@@ -1,0 +1,110 @@
+{% include 'layout.html' %}
+    <script>
+		var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx1 = document.getElementById('myChart1').getContext('2d');
+        var lable = JSON.parse('{{labels | tojson}}')
+        var series1 = JSON.parse('{{values1 | tojson}}')
+        var series2 = JSON.parse('{{values2 | tojson}}')
+        var series3 = JSON.parse('{{values3 | tojson}}')
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: lable,
+        datasets: [{
+            label: 'EWR',
+            data: series1,
+            backgroundColor: "#d16047"
+        },
+        {
+            label: 'JKF',
+            data: series2,
+            backgroundColor: "#3a9e41"
+        },
+        {
+            label: 'LGA',
+            data: series3,
+            backgroundColor: "#4971b3"
+        }
+
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                scaleLabel: {
+        display: true,
+        labelString: 'Number Of Flights',
+        fontSize: 14
+      }
+                
+            }],
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                scaleLabel: {
+        display: true,
+        labelString: 'Months',
+        fontSize: 16
+      }
+            }]
+
+        }
+    }
+});
+var myChart1 = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: lable,
+        datasets: [{
+            label: 'EWR',
+            data: series1,
+            backgroundColor: "#d16047"
+        },
+        {
+            label: 'JKF',
+            data: series2,
+            backgroundColor: "#3a9e41"
+        },
+        {
+            label: 'LGA',
+            data: series3,
+            backgroundColor: "#4971b3"
+        }
+
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                stacked: true,
+                ticks: {
+                    beginAtZero: true
+                },
+                scaleLabel: {
+        display: true,
+        labelString: 'Number Of Flights',
+        fontSize: 14
+      }
+                
+            }],
+            xAxes: [{
+                stacked: true,
+                ticks: {
+                    beginAtZero: true
+                },
+                scaleLabel: {
+        display: true,
+        labelString: 'Months',
+        fontSize: 16
+      }
+            }]
+
+        }
+    }
+});
+
+</script>

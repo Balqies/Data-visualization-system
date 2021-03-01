@@ -1,0 +1,42 @@
+
+    {% include 'layout.html' %}
+	<script>
+		var ctx = document.getElementById('myChart').getContext('2d');
+        var lable = JSON.parse('{{labels | tojson}}')
+      var series1 = JSON.parse('{{values | tojson}}')
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: lable,
+        datasets: [{
+            label: 'No of Flights',
+            data: series1,
+            backgroundColor: "#4971b3"
+        }
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                scaleLabel: {
+        display: true,
+        labelString: 'Number Of Flights',
+        fontSize: 14
+      }
+                
+            }],
+            xAxes: [{
+                scaleLabel: {
+        display: true,
+        labelString: 'Months',
+        fontSize: 16
+      }
+            }]
+
+        }
+    }
+});
+</script>
